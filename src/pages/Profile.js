@@ -16,7 +16,7 @@ export default class Profile extends React.Component {
   render() {
     return (
       <View>
-      <HeadbarDetail onPressInformation={ () => this.props.navigation.goBack() }/>
+      <HeadbarDetail onPressGoBack={ () => this.props.navigation.goBack() }/>
         <View style={ profileStyle.heading }>
             <FontAwesomeIcon icon={ faUserCircle } size={ 100 } color={ "rgba(0,0,0,0.5)" }/>
         </View>

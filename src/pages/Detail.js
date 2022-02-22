@@ -18,7 +18,7 @@ export default class Detail extends React.Component {
         </View>
         <View style={ detailStyle.viewMenu }>
           <DetailCpn
-            // onPress={ () => this.props.navigation.navigate( "Pmm1" ) }
+            onPress={ () => this.props.navigation.navigate( "Pm1" ) }
             title="รับสินค้า"
           />
 

@@ -6,10 +6,11 @@ import { StatusBar } from "expo-status-bar";
 // Icon
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 // Style
 import { headbarCpn } from "../../styles/headbar/headbarStyle";
 
-const headbarProfile = ({ onPressGoBack }) => {
+const HeadbarCpn = ({ onPressDetail, onPressGoBack, onPressUser, Title }) => {
     return (
         <View style={ headbarCpn.viewBar }>
             <StatusBar backgroundColor="rgba(0,0,0,0.5)"/>
@@ -19,11 +20,18 @@ const headbarProfile = ({ onPressGoBack }) => {
                 </TouchableOpacity>
             </View>
             <View style={{ marginLeft: 85}}>
-            <Text style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 35 }}>
-                ข้อมูลส่วนตัว
-            </Text>
+                <TouchableOpacity onPress={ onPressDetail }>
+                    <Text style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 35 }}>
+                        {Title}
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={ headbarCpn.viewIcon }>
+                <TouchableOpacity onPress={ onPressUser }>
+                    <FontAwesomeIcon icon={ faUserCircle } size={ 30 } color={ 'white' }/>
+                </TouchableOpacity>
             </View>
       </View>
     );
 };
-export default headbarProfile;
+export default HeadbarCpn;

@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./src/pages/Login";
 import Detail from "./src/pages/Detail";
 import Profile from "./src/pages/Profile";
-// import Pmm1 from "./src/Screen/Menu/PM/PM-Menu1";
+import Pm1 from "./src/pages/menus/pm/PM1";
 // import Pmm2 from "./src/Screen/Menu/PM/PM-Menu2";
 // import Sbm1 from "./src/Screen/Menu/SBM/SBM-Menu1";
 // import Sbm2 from "./src/Screen/Menu/SBM/SBM-Menu2";
@@ -26,8 +26,8 @@ export default function App() {
         <Stack.Screen name="Login" component={ Login } />
         <Stack.Screen name="Detail" component={ Detail } />
         <Stack.Screen name="Profile" component={Profile} />
-        {/* <Stack.Screen name="Pmm1" component={Pmm1} />
-        <Stack.Screen name="Pmm2" component={Pmm2} />
+        <Stack.Screen name="Pm1" component={Pm1} />
+        {/* <Stack.Screen name="Pmm2" component={Pmm2} />
         <Stack.Screen name="Sbm1" component={Sbm1} />
         <Stack.Screen name="Sbm2" component={Sbm2} />
         <Stack.Screen name="Wh1" component={Wh1} />
