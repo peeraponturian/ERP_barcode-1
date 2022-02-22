@@ -1,7 +1,7 @@
 // Library
 import React from "react";
 // Framework
-import { Modal, Text, TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 // Component
 import HeadbarDetail from "../components/headbar/headbarProfileCpn";
 import ProfileCpn from "../components/profile/profileCpn"

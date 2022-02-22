@@ -16,35 +16,39 @@ export const profileStyle = StyleSheet.create({
   },
 // Component profileCpn
   // View
-  view:{
+  view: {
     flexDirection: "row",
     marginBottom:20
   },
-  viewLeft:{
+  viewLeft: {
     marginLeft: 30,
-    width: 155,
+    width: 155
   },
-  viewRigth:{
+  viewRigth: {
     alignItems: "flex-end",
-    width: 250,
+    width: 250
   },
-  viewIcon:{
+  viewIcon: {
     marginLeft: 10,
-    marginTop: 5,
+    marginTop: 5
   },
   // Text
-  textLeft:{
+  textLeft: {
     color: "#5787A4",
-    fontWeight: "bold",
     fontSize:18,
+    fontWeight: "bold"
   },
-  textRigth:{
+  textRigth: {
     color: "#5787A4",
-    fontSize:18,
+    fontSize:18
   },
 // Component profileCpnModal
   // View
-  viewLogout:{
+  viewButton: {
+    alignSelf:"center",
+    marginTop: 100
+  },
+  viewLogout: {
     borderColor: "#5787A4",
     borderRadius: 5,
     borderWidth: 1,
@@ -56,7 +60,7 @@ export const profileStyle = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.5)",
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "center"
   },
   viewModal: {
     alignItems: "center",
@@ -68,7 +72,7 @@ export const profileStyle = StyleSheet.create({
     height: 210,
     margin: 100,
     padding: 5,
-    width: 400,
+    width: 400
   },
   viewSave: {
     alignItems: "center",
@@ -93,7 +97,7 @@ export const profileStyle = StyleSheet.create({
     width: 100
   },
   // Text
-  textLogout:{
+  textLogout: {
     alignItems: "center",
     alignSelf: "center",
     color: "#5787A4",
@@ -101,18 +105,18 @@ export const profileStyle = StyleSheet.create({
     fontWeight: "bold",
     marginVertical: 7
   },
-  textTitle:{
+  textTitle: {
     color: "#5787A4",
     fontSize: 25,
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "center"
   },
-  text:{
+  textSubline: {
     color: "#5787A4",
     fontSize: 15,
-    textAlign: "center",
+    textAlign: "center"
   },
-  textConfirm:{
+  textConfirm: {
     alignItems: "center",
     alignSelf: "center",
     color: "#FFFFFF",
@@ -129,7 +133,7 @@ export const profileStyle = StyleSheet.create({
     marginVertical: 3
   },
   // Icon
-  iconPopup:{
+  iconPopup: {
     alignItems: "center",
     alignSelf: "center"
   }

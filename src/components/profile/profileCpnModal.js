@@ -20,7 +20,7 @@ const profileCpnProfile = ({ onPressHome }) => {
     };
     return (
         <View>
-            <View style={{ alignSelf:"center", marginTop: 100 }}>
+            <View style={ profileStyle.viewButton }>
                 <TouchableOpacity
                     onPress={ () => onPressPopupCancelOpen() }
                     style={ profileStyle.viewLogout }
@@ -36,14 +36,14 @@ const profileCpnProfile = ({ onPressHome }) => {
             >
                 <View style={profileStyle.viewBackground}>
                     <View style={ profileStyle.viewModal }>
-                        <View style={{ marginTop: 5, }}>
+                        <View style={{ marginTop: 5 }}>
                             <FontAwesomeIcon icon={ faExclamationCircle } style={profileStyle.iconPopup} size={ 75 } color={ 'orange' } />
                         </View>
-                        <View style={{ marginTop: 5, }}>
+                        <View style={{ marginTop: 5 }}>
                             <Text style={ profileStyle.textTitle }>คำเตือน</Text>
                         </View>
-                        <View style={{ marginTop: 5, }}>
-                            <Text style={ profileStyle.text }>คุณต้องการ"ออกจากระบบ"ใช่หรือไม่</Text>
+                        <View style={{ marginTop: 5 }}>
+                            <Text style={ profileStyle.textSubline }>คุณต้องการ"ออกจากระบบ"ใช่หรือไม่</Text>
                         </View>
                         <View style={{ flexDirection: "row" }}>
                             <View>
