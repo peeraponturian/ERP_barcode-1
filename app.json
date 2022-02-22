@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testt",
-    "slug": "testt",
+    "name": "erp_barcode",
+    "slug": "erp_barcode",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
