@@ -9,14 +9,15 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 // Style
 import { headbarCpn } from "../../styles/headbar/headbarStyle";
 
-const headbarDetail = ({ onPressUser }) => {
+const HeadbarDetail = ({ onPressUser }) => {
     return (
-        <View style={ headbarCpn.viewBar }>
+        <View style={ headbarCpn.viewBarD }>
             <StatusBar backgroundColor="rgba(0,0,0,0.5)"/>
-            <View style={ headbarCpn.viewTitle }>
-                <Text style={ headbarCpn.textTitle }>สำนักงานใหญ่</Text>
+            <View style={ headbarCpn.viewTitleD }>
+                <Text style={ headbarCpn.textTitleD }>สำนักงานใหญ่</Text>
             </View>
-            <View style={ headbarCpn.viewIcon }>
+            
+            <View style={ headbarCpn.viewIconD }>
                 <TouchableOpacity onPress={ onPressUser }>
                     <FontAwesomeIcon icon={ faUserCircle } size={ 30 } color={ 'white' }/>
                 </TouchableOpacity>
@@ -24,4 +25,4 @@ const headbarDetail = ({ onPressUser }) => {
         </View>
     );
 };
-export default headbarDetail;
+export default HeadbarDetail;
