@@ -12,21 +12,25 @@ export const headbarCpn = StyleSheet.create({
         paddingTop:25,
         width: 480
     },
-    viewTitle:{
-        // backgroundColor: "#000",
-        marginLeft: 140,
-        width: 280
+    viewTitle: {
+        marginLeft: 10,
+        width: 370
     },
-    viewIcon:{
-        // backgroundColor: "#000",
+    viewIcon: {
         marginLeft: 10,
         marginTop: 10
     },
     // Text
     textTitle: {
         color: "#FFFFFF",
+        fontWeight: "bold",
         fontSize: 35,
-        fontWeight: "bold"
+        textAlign: "center"
+    },
+    // Icon
+    iconAngleLeft: {
+        alignItems: "center",
+        alignSelf: "center"
     },
 // headbarDetailCpn
     viewBarD: {

@@ -16,18 +16,18 @@ const HeadbarCpn = ({ onPressDetail, onPressGoBack, onPressUser, Title }) => {
             <StatusBar backgroundColor="rgba(0,0,0,0.5)"/>
             <View style={ headbarCpn.viewIcon }>
                 <TouchableOpacity onPress={ onPressGoBack }>
-                    <FontAwesomeIcon icon={ faAngleLeft } size={ 30 } color={ "#fff" } style={{ alignItems: "center", alignSelf: "center",}}/>
+                    <FontAwesomeIcon icon={ faAngleLeft } size={ 30 } color={ "#fff" } style={ headbarCpn.iconAngleLeft }/>
                 </TouchableOpacity>
             </View>
 
-            <View style={{ marginLeft: 10, width: 370 }}>
+            <View style={ headbarCpn.viewTitle }>
                 <TouchableOpacity onPress={ onPressDetail }>
-                    <Text style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 35, textAlign: "center" }}>
+                    <Text style={ headbarCpn.textTitle }>
                         {Title}
                     </Text>
                 </TouchableOpacity>
             </View>
-            
+
             <View style={ headbarCpn.viewIcon }>
                 <TouchableOpacity onPress={ onPressUser }>
                     <FontAwesomeIcon icon={ faUserCircle } size={ 30 } color={ 'white' }/>
