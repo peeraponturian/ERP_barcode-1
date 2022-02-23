@@ -14,14 +14,14 @@ const HeadbarCpn = ({ onPressDetail, onPressGoBack, onPressUser, Title }) => {
     return (
         <View style={ headbarCpn.viewBar }>
             <StatusBar backgroundColor="rgba(0,0,0,0.5)"/>
-            <View>
+            <View style={ headbarCpn.viewIcon }>
                 <TouchableOpacity onPress={ onPressGoBack }>
-                    <FontAwesomeIcon icon={ faAngleLeft } size={ 40 } color={ "#fff" } style={{ alignItems: "center", alignSelf: "center", marginTop: 5, marginLeft: 10, }}/>
+                    <FontAwesomeIcon icon={ faAngleLeft } size={ 40 } color={ "#fff" } style={{ alignItems: "center", alignSelf: "center",}}/>
                 </TouchableOpacity>
             </View>
-            <View style={{ marginLeft: 85}}>
+            <View style={{ marginLeft: 10, width: 360, height: 47 }}>
                 <TouchableOpacity onPress={ onPressDetail }>
-                    <Text style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 35 }}>
+                    <Text style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 35, textAlign: "center" }}>
                         {Title}
                     </Text>
                 </TouchableOpacity>

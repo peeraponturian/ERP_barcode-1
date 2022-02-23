@@ -10,7 +10,7 @@ import HeadbarCpn from "../../../components/headbar/headbarCpn";
 // Style
 
 const baseUrl = 'http://192.168.1.25/';
-const kettype = {"picking_type": "pms"}
+const kettype = { "picking_type": "pms" }
 const url = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 export default class PM1 extends React.Component {
   state = {
@@ -19,7 +19,7 @@ export default class PM1 extends React.Component {
 
   // lifecycle
   componentDidMount() {
-    axios.get(url,kettype)
+    axios.get( url,kettype )
       .then(res => {
         const persons = res.data.data.items;
         this.setState({ persons });
@@ -34,7 +34,7 @@ export default class PM1 extends React.Component {
               onPressDetail={ () => this.props.navigation.navigate( "Detail" ) }
               onPressGoBack={ () => this.props.navigation.goBack() }
               onPressUser={ () => this.props.navigation.navigate( "Profile" ) }
-              Title={"test test test"}
+              Title={"test"}
             />
               <Text style={{ marginLeft: 250, marginTop: 50 }}>test</Text>
           </View>

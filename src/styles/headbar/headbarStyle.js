@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const headbarCpn = StyleSheet.create({
-// Page
+// headbarCpn
     // View
     viewBar: {
         backgroundColor: "#5787A4",
@@ -13,10 +13,13 @@ export const headbarCpn = StyleSheet.create({
         width: 480
     },
     viewTitle:{
-        marginLeft: 125
+        // backgroundColor: "#000",
+        marginLeft: 140,
+        width: 280
     },
     viewIcon:{
-        marginLeft: 80,
+        // backgroundColor: "#000",
+        marginLeft: 10,
         marginTop: 10
     },
     // Text
@@ -25,4 +28,6 @@ export const headbarCpn = StyleSheet.create({
         fontSize: 35,
         fontWeight: "bold"
     },
+// 
+    // 
 });
