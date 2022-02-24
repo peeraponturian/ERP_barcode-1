@@ -10,12 +10,12 @@ import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 // Style
 import { headbarCpn } from '../../styles/headbar/headbarStyle';
 
-const HeadbarCpn = ({ onPressDetail, onPressGoBack, onPressUser, Title }) => {
+const HeadbarCpn = ({ onPressDetail, onPressBack, onPressUser, Title }) => {
 	return (
 		<View style={headbarCpn.viewBar}>
 			<StatusBar backgroundColor="rgba(0,0,0,0.5)" />
 			<View style={headbarCpn.viewIcon}>
-				<TouchableOpacity onPress={onPressGoBack}>
+				<TouchableOpacity onPress={onPressBack}>
 					<FontAwesomeIcon icon={faAngleLeft} size={30} color={'#fff'} style={headbarCpn.iconAngleLeft} />
 				</TouchableOpacity>
 			</View>

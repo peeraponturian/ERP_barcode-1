@@ -6,9 +6,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./src/pages/Login";
 import Menu from "./src/pages/Menu";
 import Profile from "./src/pages/Profile";
-import Pm1 from "./src/pages/menus/pm/PM1";
+import PMS1 from "./src/pages/menus/pm/PMS1";
 // import Pmm2 from "./src/Screen/Menu/PM/PM-Menu2";
-// import Sbm1 from "./src/Screen/Menu/SBM/SBM-Menu1";
+import SBM1 from "./src/pages/menus/sbm/SBM1";
 // import Sbm2 from "./src/Screen/Menu/SBM/SBM-Menu2";
 // import Wh1 from "./src/Screen/Menu/WM/WH-Menu1";
 // import Wh2 from "./src/Screen/Menu/WM/WH-Menu2";
@@ -26,10 +26,10 @@ export default function App() {
         <Stack.Screen name="Login" component={ Login } />
         <Stack.Screen name="Menu" component={ Menu } />
         <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Pm1" component={Pm1} />
-        {/* <Stack.Screen name="Pmm2" component={Pmm2} />
-        <Stack.Screen name="Sbm1" component={Sbm1} />
-        <Stack.Screen name="Sbm2" component={Sbm2} />
+        <Stack.Screen name="PMS1" component={PMS1} />
+        {/* <Stack.Screen name="Pmm2" component={Pmm2} /> */}
+        <Stack.Screen name="SBM1" component={SBM1} />
+        {/* <Stack.Screen name="Sbm2" component={Sbm2} />
         <Stack.Screen name="Wh1" component={Wh1} />
         <Stack.Screen name="Wh2" component={Wh2} />
         <Stack.Screen name="Wh3" component={Wh3} />

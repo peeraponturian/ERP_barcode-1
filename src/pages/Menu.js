@@ -17,7 +17,7 @@ export default class Menu extends React.Component {
 					<Text style={menuStyle.textMenu}>Purchasing Management</Text>
 				</View>
 				<View style={menuStyle.viewMenu}>
-					<MenuCpn onPress={() => this.props.navigation.navigate('Pm1')} title="รับสินค้า" />
+					<MenuCpn onPress={() => this.props.navigation.navigate('PMS1')} title="รับสินค้า" />
 
 					<MenuCpn // onPress={ () => this.props.navigation.navigate( "Pmm2" ) }
 					title="ใบขนขาเข้า" />
@@ -27,7 +27,7 @@ export default class Menu extends React.Component {
 					<Text style={menuStyle.textMenu}>Sales & Billing Management</Text>
 				</View>
 				<View style={menuStyle.viewMenu}>
-					<MenuCpn // onPress={ () => this.props.navigation.navigate( "Sbm1" ) }
+					<MenuCpn onPress={ () => this.props.navigation.navigate( 'SBM1' ) }
 					title="จ่ายสินค้า" />
 
 					<MenuCpn // onPress={ () => this.props.navigation.navigate( "Sbm2" ) }

@@ -10,176 +10,74 @@ import { cardStyle } from '../../styles/card/cardStyle';
 
 const CardData = ({ item }) => {
 	return (
-		<View style={ cardStyle.viewLayoutCard }>
-			<View style={{ flexDirection: 'row',marginLeft: 5, marginTop: 5 }}>
-                <Text style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 5 }}>ประเภท : </Text>
-                <Text style={{ fontSize: 18, width: 150 }}>ใบสั่งขาย</Text>
-                <View
-                    style={{
-                        alignSelf: 'flex-end',
-                        alignItems: 'flex-end',
-                        width: 210
-                    }}
-                >
-                    <View>
-                        {item.picking_status == 1 ? (
-                            <Text
-                                style={{
-                                    color: '#1E90FF',
-                                    fontWeight: 'bold',
-                                    fontSize: 20
-                                }}
-                            >
-                                รอดำเนินการ
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View>
-                        {item.picking_status == 2 ? (
-                            <Text
-                                style={{
-                                    color: '#FF0000',
-                                    fontWeight: 'bold',
-                                    fontSize: 20
-                                }}
-                            >
-                                กำลังดำเนินการ
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View>
-                        {item.picking_status == 6 ? (
-                            <Text
-                                style={{
-                                    color: '#FF8C00',
-                                    fontWeight: 'bold',
-                                    fontSize: 20
-                                }}
-                            >
-                                พักใบงาน
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View>
-                        {item.picking_status == 8 ? (
-                            <Text
-                                style={{
-                                    color: '#006400',
-                                    fontWeight: 'bold',
-                                    fontSize: 20
-                                }}
-                            >
-                                เสร็จแล้ว
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View>
-                        {item.picking_status == 9 ? (
-                            <Text
-                                style={{
-                                    color: '#8B0000',
-                                    fontWeight: 'bold',
-                                    fontSize: 20
-                                }}
-                            >
-                                ยกเลิก
-                            </Text>
-                        ) : null}
-                    </View>
-                </View>
+		<View style={cardStyle.viewLayoutCard}>
+			<View style={cardStyle.viewFirstRow}>
+				<Text style={cardStyle.textType}>ประเภท : </Text>
+				<Text style={cardStyle.textSubType}>ใบสั่งขาย</Text>
+				<View style={cardStyle.viewStatus}>
+					<View>
+                        {item.picking_status == 1 ? (<Text style={[cardStyle.textStatus,{color: '#1E90FF'}]}>รอดำเนินการ</Text>) : null}
+					</View>
+
+					<View>
+						{item.picking_status == 2 ? (<Text style={[cardStyle.textStatus,{color: '#FF0000'}]}>กำลังดำเนินการ</Text>) : null}
+					</View>
+
+					<View>
+						{item.picking_status == 6 ? (<Text style={[cardStyle.textStatus,{color: '#FF8C00'}]}>พักใบงาน</Text>) : null}
+					</View>
+
+					<View>
+						{item.picking_status == 8 ? (<Text style={[cardStyle.textStatus,{color: '#006400'}]}>เสร็จแล้ว</Text>) : null}
+					</View>
+
+					<View>
+						{item.picking_status == 9 ? (<Text style={[cardStyle.textStatus,{color: '#8B0000'}]}>ยกเลิก</Text>) : null}
+					</View>
+				</View>
 			</View>
 
-			<View style={{ flexDirection: 'row', marginLeft: 5, marginTop: 5 }}>
-				<View style={{ alignItems: 'center', alignSelf: 'center' }}>
+			<View style={cardStyle.viewSecondRow}>
+				<View style={cardStyle.viewIcon}>
 					<FontAwesomeIcon icon={faClipboardList} color={'orange'} size={25} />
 				</View>
-				<View style={{ marginLeft: 15, width: 260 }}>
-					<Text style={{ color: '#000', fontWeight: 'bold', fontSize: 22 }}>{item.document}</Text>
+
+				<View style={cardStyle.viewDocument}>
+					<Text style={cardStyle.textDocument}>{item.document}</Text>
 				</View>
 
-				<View style={{ alignSelf: 'flex-end', alignItems: 'flex-end', width: 140 }}>
+				<View style={cardStyle.viewSubStatus}>
 					<View>
-						{item.docuStatus == 'N' ? (
-							<Text
-								style={{
-									color: '#7CFC00',
-									fontWeight: 'bold',
-									fontSize: 20
-								}}
-							>
-								N
-							</Text>
-						) : null}
+						{item.docuStatus == 'N' ? (<Text style={[cardStyle.textSubStatus,{color: '#7CFC00'}]}>N</Text>) : null}
 					</View>
+
 					<View>
-						{item.docuStatus == 'P' ? (
-							<Text
-								style={{
-									color: '#FFD700',
-									fontWeight: 'bold',
-									fontSize: 20
-								}}
-							>
-								P
-							</Text>
-						) : null}
+						{item.docuStatus == 'P' ? (<Text style={[cardStyle.textSubStatus,{color: '#FFD700'}]}>P</Text>) : null}
 					</View>
+
 					<View>
-						{item.docuStatus == 'Y' ? (
-							<Text
-								style={{
-									color: '#F08080',
-									fontWeight: 'bold',
-									fontSize: 20
-								}}
-							>
-								A
-							</Text>
-						) : null}
+						{item.docuStatus == 'Y' ? (<Text style={[cardStyle.textSubStatus,{color: '#F08080'}]}>A</Text>) : null}
 					</View>
 				</View>
 			</View>
 
-			<View style={{ flexDirection: 'row', marginLeft: 15, marginTop: 5 }}>
+			<View style={cardStyle.viewThirdRow}>
 				<View>
-					<Text
-						style={{
-							color: 'rgba(0,0,0,0.5)',
-							fontWeight: 'bold',
-							fontSize: 18
-						}}
-					>
-						วันที่เอกสาร :
-					</Text>
+					<Text style={cardStyle.textDate}>วันที่เอกสาร :</Text>
 				</View>
 
-				<View style={{ marginLeft: 10 }}>
-					<Text style={{ color: '#5787A4', fontSize: 18, fontWeight: 'bold' }}>{item.picking_date}</Text>
+				<View style={cardStyle.viewDate}>
+					<Text style={cardStyle.textSubDate}>{item.picking_date}</Text>
 				</View>
 			</View>
 
-			<View
-				style={{
-					flexDirection: 'row',
-					marginBottom: 10,
-					marginLeft: 15,
-					marginTop: 5
-				}}
-			>
+			<View style={cardStyle.viewFourthRow}>
 				<View>
-					<Text
-						style={{
-							color: 'rgba(0,0,0,0.5)',
-							fontWeight: 'bold',
-							fontSize: 18
-						}}
-					>
-						ลูกค้า :
-					</Text>
+					<Text style={cardStyle.textRemark}>ลูกค้า :</Text>
 				</View>
 
-				<View style={{ marginLeft: 10, width: 345 }}>
-					<Text style={{ color: 'rgba(0,0,0,0.5)', fontSize: 18 }}>{item.remark}</Text>
+				<View style={cardStyle.viewRemark}>
+					<Text style={cardStyle.textSubRemark}>{item.remark}</Text>
 				</View>
 			</View>
 		</View>

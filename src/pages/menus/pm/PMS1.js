@@ -11,16 +11,17 @@ import Datalist from '../../../components/datalistCpn';
 // Style
 
 const baseUrl = 'http://192.168.1.25/';
-const kettype = { picking_type: 'pms' };
+const keytype = { picking_type: 'pms' };
 const url = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 
 export default class PM1 extends React.Component {
 	state = {
-		persons: {}
+		persons: {},
+		refrech: 'sbm'
 	};
 	// lifecycle
 	componentDidMount() {
-		axios.post(url, kettype).then((res) => {
+		axios.post(url, keytype).then((res) => {
 			const persons = res.data.data.items;
 			this.setState({ persons });
 			// console.log( persons )
@@ -31,13 +32,13 @@ export default class PM1 extends React.Component {
 		return (
 			<View style={{ flex: 1 }}>
 				<HeadbarCpn
-					onPressDetail={() => this.props.navigation.navigate('Detail')}
-					onPressGoBack={() => this.props.navigation.goBack()}
+					onPressBack={() => this.props.navigation.goBack()}
+					onPressDetail={() => this.props.navigation.navigate('Menu')}
 					onPressUser={() => this.props.navigation.navigate('Profile')}
 					Title={'รับสินค้า'}
 				/>
 				<View style={{ height: 650 }}>
-					<Datalist dataObject={this.state.persons} />
+					<Datalist dataObject={this.state.persons} dataRefrech={this.state.refrech} />
 				</View>
 			</View>
 		);
