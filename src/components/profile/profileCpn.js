@@ -6,7 +6,7 @@ import { Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 // Style
-import { profileStyle } from '../../styles/profileStyle';
+import { profileStyle } from '../../styles/profile/profileStyle';
 
 const profileCpn = ({ leftText, rightText }) => {
 	return (

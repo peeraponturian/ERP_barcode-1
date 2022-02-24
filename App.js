@@ -4,7 +4,7 @@ enableScreens();
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./src/pages/Login";
-import Detail from "./src/pages/Detail";
+import Menu from "./src/pages/Menu";
 import Profile from "./src/pages/Profile";
 import Pm1 from "./src/pages/menus/pm/PM1";
 // import Pmm2 from "./src/Screen/Menu/PM/PM-Menu2";
@@ -24,7 +24,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={screenOptionStyle}>
         <Stack.Screen name="Login" component={ Login } />
-        <Stack.Screen name="Detail" component={ Detail } />
+        <Stack.Screen name="Menu" component={ Menu } />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Pm1" component={Pm1} />
         {/* <Stack.Screen name="Pmm2" component={Pmm2} />

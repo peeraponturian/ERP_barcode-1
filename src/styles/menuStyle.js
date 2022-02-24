@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const detailStyle = StyleSheet.create({
+export const menuStyle = StyleSheet.create({
 	// Page
 	// View
 	viewMenu: {

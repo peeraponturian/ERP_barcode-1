@@ -10,7 +10,7 @@ import ProfileCpnProfile from '../components/profile/profileCpnModal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUserCircle } from '@fortawesome/free-regular-svg-icons';
 // Style
-import { profileStyle } from '../styles/profileStyle';
+import { profileStyle } from '../styles/profile/profileStyle';
 
 export default class Profile extends React.Component {
 	render() {

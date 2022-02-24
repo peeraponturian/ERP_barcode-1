@@ -6,16 +6,16 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 // Style
-import { detailStyle } from '../styles/detailStyle';
+import { menuStyle } from '../styles/menuStyle';
 
-const detailCpn = ({ onPress, title }) => {
+const menuCpn = ({ onPress, title }) => {
 	return (
-		<TouchableOpacity onPress={onPress} style={detailStyle.touchableCard}>
-			<View style={detailStyle.viewBgIcon}>
+		<TouchableOpacity onPress={onPress} style={menuStyle.touchableCard}>
+			<View style={menuStyle.viewBgIcon}>
 				<FontAwesomeIcon icon={faClipboardList} color={'white'} size={30} style={{ margin: 10 }} />
 			</View>
-			<Text style={detailStyle.textTitle}>{title}</Text>
+			<Text style={menuStyle.textTitle}>{title}</Text>
 		</TouchableOpacity>
 	);
 };
-export default detailCpn;
+export default menuCpn;

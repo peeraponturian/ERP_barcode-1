@@ -63,7 +63,7 @@ export default class Login extends React.Component {
 					{/* Logo */}
 					<Image source={require('../images/LogoMiccell.png')} style={loginStyles.logo} />
 					{/* Title */}
-					<TouchableOpacity onPress={() => this.props.navigation.navigate('Detail')}>
+					<TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
 						<Text style={loginStyles.headingText}>กรุณาป้อน PIN เพื่อยืนยัน</Text>
 					</TouchableOpacity>
 					{/* pincode enable and disable */}

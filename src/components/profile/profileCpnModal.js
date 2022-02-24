@@ -6,7 +6,7 @@ import { Modal, Text, TouchableOpacity, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 // Style
-import { profileStyle } from '../../styles/profileStyle';
+import { profileStyle } from '../../styles/profile/profileStyle';
 
 const profileCpnProfile = ({ onPressHome }) => {
 	const [ isModalVisiblePopupCancel, setModalVisiblePopupCancel ] = useState(false);
