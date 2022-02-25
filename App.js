@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./src/pages/Login";
 import Menu from "./src/pages/Menu";
 import Profile from "./src/pages/Profile";
-import PMS1 from "./src/pages/menus/pm/PMS1";
+import PMS1 from "./src/pages/menus/pms/PMS1";
 // import Pmm2 from "./src/Screen/Menu/PM/PM-Menu2";
 import SBM1 from "./src/pages/menus/sbm/SBM1";
 // import Sbm2 from "./src/Screen/Menu/SBM/SBM-Menu2";

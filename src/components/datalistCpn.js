@@ -168,7 +168,15 @@ const Datalist = ({ dataObject, dataRefrech }) => {
 									borderColor: 'grey',
 									borderRadius: 5,
 									borderWidth: 1,
-									marginBottom: 10
+									elevation: 5,
+									marginBottom: 10,
+									shadowColor: "#000",
+									shadowOffset: {
+										width: 0,
+										height: 2,
+									},
+									shadowOpacity: 0.25,
+									shadowRadius: 3.84
 								}}
 								onPress={() => onPressItem(item)}
 							>
