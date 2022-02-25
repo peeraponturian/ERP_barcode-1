@@ -26,7 +26,7 @@ const baseUrl = 'http://192.168.1.25/';
 const urlInlist = `${baseUrl}erp_barcode/backend/picking/get_dt`;
 const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 
-const DatalistCpn = ({ dataObject, dataRefrech }) => {
+const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
 	// Set Data
 	const [ Datasbm, setDatasbm ] = useState(null);
 	const [ DataInsbm, setDataInsbm ] = useState(null);
@@ -105,30 +105,24 @@ const DatalistCpn = ({ dataObject, dataRefrech }) => {
 		setisModalVisible(false);
 	};
 
-	// const onRefresh = () => {
-	// 	Alert.alert('คำเตือน', 'ใบงาน กำลังดำเนินการเช็คสินค้าอยู่', [
-	// 		{ text: 'ตกลง', onPress: () => console.log('ตกลง', { dataObject }) }
-	// 	]);
-	// };
-
 	// life cycle
-	// useEffect(() => {
-	// 	const backAction = () => {
-	// 		Alert.alert('Hold on!', 'Are you sure you want to go back?', [
-	// 			{ text: 'YES', onPress: () => BackHandler.exitApp() },
-	// 			{
-	// 				text: 'Cancel',
-	// 				onPress: () => null,
-	// 				style: 'cancel'
-	// 			}
-	// 		]);
-	// 		return true;
-	// 	};
+	useEffect(() => {
+		const backAction = () => {
+			Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+				{ text: 'YES', onPress: onPressBack },
+				{
+					text: 'Cancel',
+					onPress: () => null,
+					style: 'cancel'
+				}
+			]);
+			return true;
+		};
 
-	// 	const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+		const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
 
-	// 	return () => backHandler.remove();
-	// },[]);
+		return () => backHandler.remove();
+	},[]);
 
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
@@ -183,7 +177,7 @@ const DatalistCpn = ({ dataObject, dataRefrech }) => {
 				onRequestClose={() => setisModalVisible(false)}
 			>
 				<View style={datalistModalStyle.container}>
-					<View style={datalistModalStyle.view}>
+					<View style={datalistModalStyle.viewModal}>
 						<View style={datalistModalStyle.viewLayoutText}>
 							<DatalistModal
 								inputDocument={inputDocument}

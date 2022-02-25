@@ -38,7 +38,11 @@ export default class PMS1 extends React.Component {
 					Title={'รับสินค้า'}
 				/>
 				<View style={{ height: 650 }}>
-					<Datalist dataObject={this.state.persons} dataRefrech={this.state.refrech} />
+					<Datalist
+						dataObject={this.state.persons}
+						dataRefrech={this.state.refrech}
+						onPressBack={() => this.props.navigation.navigate('Menu')}
+					/>
 				</View>
 			</View>
 		);
