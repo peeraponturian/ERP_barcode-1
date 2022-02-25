@@ -14,7 +14,7 @@ const baseUrl = 'http://192.168.1.25/';
 const keytype = { picking_type: 'pms' };
 const url = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 
-export default class PM1 extends React.Component {
+export default class PMS1 extends React.Component {
 	state = {
 		persons: {},
 		refrech: 'sbm'

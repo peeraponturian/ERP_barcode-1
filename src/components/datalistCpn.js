@@ -3,13 +3,12 @@ import React, { useState, useEffect } from 'react';
 // Framework
 import {
 	Alert,
+	BackHandler,
 	FlatList,
-	KeyboardAvoidingView,
 	Modal,
 	Picker,
 	RefreshControl,
 	SafeAreaView,
-	ScrollView,
 	Text,
 	TextInput,
 	TouchableOpacity,
@@ -18,35 +17,38 @@ import {
 import axios from 'axios';
 // Component
 import CardData from './card/cardData';
-// Icon
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {
-	faClipboardList,
-	faExclamationCircle,
-	faPlus,
-	faTrash,
-	faInfoCircle,
-	faBarcode,
-	faCheckCircle,
-	faTimesCircle
-} from '@fortawesome/free-solid-svg-icons';
+import DatalistModal from '../components/modal/datalistModal';
 // Style
+import { datalistStyle } from '../styles/datalistStyle';
+import { datalistModalStyle } from '../styles/modal/datalistModalStyle';
 
-const Datalist = ({ dataObject, dataRefrech }) => {
+const baseUrl = 'http://192.168.1.25/';
+const urlInlist = `${baseUrl}erp_barcode/backend/picking/get_dt`;
+const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
+
+const DatalistCpn = ({ dataObject, dataRefrech }) => {
 	// Set Data
 	const [ Datasbm, setDatasbm ] = useState(null);
-	const [ refreshing, setRefreshing ] = useState(false);
+	const [ DataInsbm, setDataInsbm ] = useState(null);
 	// const [ selectedValue, setSelectedValue ] = useState('3');
-
+	const [ inputDocument, setinputDocument ] = useState();
+	const [ inputRemark, setinputRemark ] = useState();
+	const [ inputPickingDate, setinputPickingDate ] = useState();
+	const [ inputid, setinputid ] = useState();
+	const [ inputStatus, setinputStatus ] = useState();
+	const [ inputIntext, setinputIntext ] = useState();
+	//
+	const kettypeRefrech = { picking_type: dataRefrech };
 	// Modal
 	const [ isModalVisible, setisModalVisible ] = useState(false);
+	const [ isModalVisiblePage, setisModalVisiblePage ] = useState(false);
 
+	// Refrech
+	const [ refreshing, setRefreshing ] = useState(false);
 	const wait = (timeout) => {
 		return new Promise((resolve) => setTimeout(resolve, timeout));
 	};
-	const baseUrl = 'http://192.168.1.25/';
-	const kettypeRefrech = { picking_type: dataRefrech };
-	const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
+
 	const onRefresh = React.useCallback(async () => {
 		setRefreshing(true);
 		try {
@@ -63,63 +65,84 @@ const Datalist = ({ dataObject, dataRefrech }) => {
 		}
 	}, []);
 
+	// onPress
+	const onPressItem = async (item) => {
+		if (false) {
+		} else {
+			setisModalVisible(true);
+			setinputDocument(item.document);
+			setinputRemark(item.remark);
+			setinputPickingDate(item.picking_date);
+			setinputid(item.id);
+			setinputStatus(item.picking_status);
+			setDataInsbm();
+			setinputIntext(item.intext);
+			// setBgcolor('#f5f5fa');
+			// console.log(item.id);
+			try {
+				// setIsLoading(true);
+				const response = await axios.post(urlInlist, { id: item.id });
+				if (response.status === 200) {
+					setDataInsbm(response.data.data.items);
+					// setIsLoading(false);
+					// console.log(response.data.data.items);
+					return;
+				} else {
+					throw new Error('Failed to fetch Data');
+				}
+			} catch (error) {
+				console.error(error);
+			}
+		}
+	};
+
+	const onPressPage = () => {
+		setisModalVisiblePage(true);
+	};
+
+	const onPressCancel = () => {
+		setisModalVisiblePage(false);
+		setisModalVisible(false);
+	};
+
 	// const onRefresh = () => {
 	// 	Alert.alert('คำเตือน', 'ใบงาน กำลังดำเนินการเช็คสินค้าอยู่', [
 	// 		{ text: 'ตกลง', onPress: () => console.log('ตกลง', { dataObject }) }
 	// 	]);
 	// };
 
+	// life cycle
+	// useEffect(() => {
+	// 	const backAction = () => {
+	// 		Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+	// 			{ text: 'YES', onPress: () => BackHandler.exitApp() },
+	// 			{
+	// 				text: 'Cancel',
+	// 				onPress: () => null,
+	// 				style: 'cancel'
+	// 			}
+	// 		]);
+	// 		return true;
+	// 	};
+
+	// 	const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+
+	// 	return () => backHandler.remove();
+	// },[]);
+
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
 			<View style={{ backgroundColor: '#f5f5fa' }}>
 				{/* แทบด้านบน แบบปุ่ม */}
-				<View
-					style={{
-						borderBottomWidth: 0.5,
-						borderColor: 'rgba(0,0,0,0.2)',
-						flexDirection: 'row',
-						justifyContent: 'space-between',
-						marginTop: 10
-					}}
-				>
+				<View style={datalistStyle.viewButtonBar}>
 					<View>
-						<TouchableOpacity
-							// onPress={() => onPressPage()}
-							style={{
-								alignItems: 'center',
-								backgroundColor: '#fff',
-								borderColor: 'rgba(0,0,0,0.2)',
-								borderLeftWidth: 1,
-								borderRightWidth: 1,
-								borderTopWidth: 1,
-								height: 40,
-								marginLeft: 10,
-								width: 183
-							}}
-						>
-							<Text
-								style={{
-									color: '#5787A4',
-									fontSize: 22,
-									fontWeight: 'bold',
-									marginLeft: 1,
-									marginVertical: 7
-								}}
-							>
-								ใบสั่งซื้อ
-							</Text>
+						<TouchableOpacity style={datalistStyle.viewButton}>
+							<Text style={datalistStyle.textButton}>ใบสั่งซื้อ</Text>
 						</TouchableOpacity>
 					</View>
 				</View>
 				{/* แทบใส่ข้อความ */}
-				<View
-					style={{
-						backgroundColor: '#fff',
-						flexDirection: 'row',
-						justifyContent: 'space-between',
-						margin: 10
-					}}
-				>
+				<View style={datalistStyle.viewInputBar}>
 					{/* <View style={{ backgroundColor: "rgba(0,0,0,0.3)", height: 50, width: 130, }}>
                         <Picker selectedValue={ selectedValue } style={{ color:"white" }} onValueChange={( itemValue )=>setSelectedValue( itemValue )}>
                             <Picker.Item value="1" label="วันนี้"/>
@@ -128,26 +151,10 @@ const Datalist = ({ dataObject, dataRefrech }) => {
                             <Picker.Item value="4" label="sync"/>
                         </Picker>
                     </View> */}
-					<TextInput
-						placeholder="Scan code"
-						style={{
-							borderColor: '#5787A4',
-							borderRadius: 2.5,
-							borderWidth: 1,
-							color: '#000',
-							fontSize: 25,
-							height: 50,
-							textAlign: 'center',
-							// width: 330,
-							width: 460
-						}}
-						maxLength={18}
-					/>
+					<TextInput placeholder="Scan code" style={datalistStyle.textInputScan} maxLength={18} />
 				</View>
 				{/* เส้นขั้น */}
-				<View
-					style={{ borderColor: 'rgba(0,0,0,0.2)', borderTopWidth: 0.5, marginLeft: 10, marginRight: 10 }}
-				/>
+				<View style={datalistStyle.viewHr} />
 				{/* Flatlist */}
 				<View style={{ margin: 10 }}>
 					<FlatList
@@ -161,25 +168,7 @@ const Datalist = ({ dataObject, dataRefrech }) => {
 							/>
 						}
 						renderItem={({ item }) => (
-							<TouchableOpacity
-								style={{
-									alignItems: 'flex-start',
-									backgroundColor: '#fff',
-									borderColor: 'grey',
-									borderRadius: 5,
-									borderWidth: 1,
-									elevation: 5,
-									marginBottom: 10,
-									shadowColor: "#000",
-									shadowOffset: {
-										width: 0,
-										height: 2,
-									},
-									shadowOpacity: 0.25,
-									shadowRadius: 3.84
-								}}
-								onPress={() => onPressItem(item)}
-							>
+							<TouchableOpacity style={datalistStyle.toCard} onPress={() => onPressItem(item)}>
 								<CardData item={item} />
 							</TouchableOpacity>
 						)}
@@ -187,102 +176,80 @@ const Datalist = ({ dataObject, dataRefrech }) => {
 				</View>
 			</View>
 
-			{/* <Modal
+			<Modal
 				animationType="none"
 				transparent={true}
 				visible={isModalVisible}
 				onRequestClose={() => setisModalVisible(false)}
 			>
-				<View style={Popup.centeredViewBackground}>
-					<View style={[ Popup.viewPopupBackground, { flexDirection: 'column' } ]}>
-						<View style={Popup.viewPopupDetails}>
-							<Text style={Popup.textTitle}>{textPopupPageTitle}</Text>
+				<View style={datalistModalStyle.container}>
+					<View style={datalistModalStyle.view}>
+						<View style={datalistModalStyle.viewLayoutText}>
+							<DatalistModal
+								inputDocument={inputDocument}
+								inputRemark={inputRemark}
+								inputPickingDate={inputPickingDate}
+							/>
 						</View>
-						<View style={{ flexDirection: 'row' }}>
-							<View style={Popup.viewLeftBgPopup}>
-								<Text style={Popup.textInput}>{textPopupPageDocNum}</Text>
-							</View>
-							<View style={Popup.viewRightBgPopup}>
-								<Text style={Popup.textInputData}>{inputDocument}</Text>
-							</View>
-						</View>
-						<View style={{ flexDirection: 'row' }}>
-							<View style={Popup.viewLeftBgPopup}>
-								<Text style={Popup.textInput}>{textPopupPageDocNum2}</Text>
-							</View>
-							<View style={Popup.viewRightBgPopup}>
-								<Text style={Popup.textInputData}>{inputDocument}</Text>
-							</View>
-						</View>
-						<View style={[ Popup.viewInputData, { flexDirection: 'row' } ]}>
-							<View style={Popup.viewLeftBgPopupEx}>
-								<Text style={Popup.textInput}>{textPopupPageDetails}</Text>
-							</View>
-							<ScrollView style={Popup.scollviewRightBgPopupEx}>
-								<Text style={Popup.textInputData}>{inputRemark}</Text>
-							</ScrollView>
-						</View>
-						<View style={[ Popup.viewLastData, { flexDirection: 'row' } ]}>
-							<View style={Popup.viewLeftBgPopup}>
-								<Text style={Popup.textInput}>{textPopupPageDate}</Text>
-							</View>
-							<View style={Popup.viewRightBgPopup}>
-								<Text style={Popup.textInputData}>{inputPickingDate}</Text>
-							</View>
-						</View>
-						<View
-							style={{ flex: 5, borderColor: 'rgba(0,0,0,0.3)', borderBottomWidth: 1, borderTopWidth: 1 }}
-						>
+
+						<View style={datalistModalStyle.viewLayoutFlatlist}>
 							<FlatList
-								style={Popup.dataListPopup}
+								style={datalistModalStyle.flatlistCard}
 								data={DataInsbm}
 								keyExtractor={(item) => item.id.toString()}
 								renderItem={({ item }) => (
-									<View style={[ Popup.viewCard, { flexDirection: 'column' } ]}>
+									<View style={datalistModalStyle.viewFLCard}>
 										<View>
-											<Text style={Popup.textFlatlistTitle}>{item.picking_product_name}</Text>
+											<Text style={datalistModalStyle.textTitle}>
+												{item.picking_product_name}
+											</Text>
 										</View>
-										<View
-											style={[
-												Popup.viewFlatlistSecondLineOfInformation,
-												{ flexDirection: 'row' }
-											]}
-										>
+										<View style={datalistModalStyle.viewQuantity}>
 											<View>
-												<Text style={Popup.textFlatlistQuantity}>{textQuantity}:</Text>
+												<Text style={datalistModalStyle.textActual}>จำนวน:</Text>
 											</View>
-											<View style={Popup.viewFlatlistTextQuantity}>
-												<Text style={[ Popup.textFlatlistNumber, { textAlign: 'right' } ]}>
+											<View style={datalistModalStyle.viewNumber}>
+												<Text style={datalistModalStyle.textProductLogsQty}>
 													{item.product_logs_qty}
 												</Text>
 											</View>
 											<View>
-												<Text style={Popup.textFlatlistNumber}>/{item.request_qty}</Text>
+												<Text style={datalistModalStyle.textRequestQty}>
+													/{item.request_qty}
+												</Text>
 											</View>
-											<View style={Popup.viewFlatlistTextType}>
-												<Text style={Popup.textFlatlistType}>{item.picking_product_unit}</Text>
+											<View style={{ marginLeft: 10 }}>
+												<Text style={datalistModalStyle.textPickingProductUnit}>
+													{item.picking_product_unit}
+												</Text>
 											</View>
 										</View>
 									</View>
 								)}
 							/>
 						</View>
-						<View style={[ Popup.viewButton, { flexDirection: 'row' } ]}>
+
+						<View style={{ flex: 0.75, flexDirection: 'row' }}>
 							<View>
-								<TouchableOpacity onPress={() => onPressPage()} style={Popup.touchableopacitySave}>
-									<Text style={Popup.textButtonPopup}>ยืนยัน</Text>
+								<TouchableOpacity onPress={() => onPressPage()} style={datalistModalStyle.toSubmit}>
+									<Text style={datalistModalStyle.textSubmit}>ยืนยัน</Text>
 								</TouchableOpacity>
 							</View>
+
 							<View>
-								<TouchableOpacity onPress={() => onPressCancel()} style={Popup.touchableopacityCancel}>
-									<Text style={Popup.textButtonPopup}>ยกเลิก</Text>
+								<TouchableOpacity onPress={() => onPressCancel()} style={datalistModalStyle.toCancel}>
+									<Text
+										style={datalistModalStyle.textcancel}
+									>
+										ยกเลิก
+									</Text>
 								</TouchableOpacity>
 							</View>
 						</View>
 					</View>
 				</View>
-			</Modal> */}
+			</Modal>
 		</SafeAreaView>
 	);
 };
-export default Datalist;
+export default DatalistCpn;
