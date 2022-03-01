@@ -5,7 +5,7 @@ import { ScrollView, Text, View } from 'react-native';
 // Style
 
 import { datalistModalStyle } from '../../styles/modal/datalistModalStyle';
-const datalistModal = ({ inputDocument, inputRemark, inputPickingDate }) => {
+const datalistModal = ({ inputDocument, inputPickingDate, inputRemark }) => {
 	return (
 		<View>
 			<View style={datalistModalStyle.viewTitleModal}>

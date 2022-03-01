@@ -1,8 +1,8 @@
 // Library
 import React from 'react';
 // Framework
-import { Text, View } from 'react-native';
 import axios from 'axios';
+import { Text, View } from 'react-native';
 // Component
 import HeadbarCpn from '../../../components/headbar/headbarCpn';
 import Datalist from '../../../components/datalistCpn';
@@ -42,6 +42,7 @@ export default class PMS1 extends React.Component {
 						dataObject={this.state.persons}
 						dataRefrech={this.state.refrech}
 						onPressBack={() => this.props.navigation.navigate('Menu')}
+						onPressScan={() => this.props.navigation.navigate('Scanbarcode')}
 					/>
 				</View>
 			</View>

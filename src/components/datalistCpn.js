@@ -1,6 +1,7 @@
 // Library
 import React, { useState, useEffect } from 'react';
 // Framework
+import axios from 'axios';
 import {
 	Alert,
 	BackHandler,
@@ -14,7 +15,6 @@ import {
 	TouchableOpacity,
 	View
 } from 'react-native';
-import axios from 'axios';
 // Component
 import CardData from './card/cardData';
 import DatalistModal from '../components/modal/datalistModal';
@@ -26,7 +26,7 @@ const baseUrl = 'http://192.168.1.25/';
 const urlInlist = `${baseUrl}erp_barcode/backend/picking/get_dt`;
 const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 
-const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
+const DatalistCpn = ({ dataObject, dataRefrech, onPressBack, onPressScan }) => {
 	// Set Data
 	const [ Datasbm, setDatasbm ] = useState(null);
 	const [ DataInsbm, setDataInsbm ] = useState(null);
@@ -37,18 +37,17 @@ const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
 	const [ inputid, setinputid ] = useState();
 	const [ inputStatus, setinputStatus ] = useState();
 	const [ inputIntext, setinputIntext ] = useState();
-	//
-	const kettypeRefrech = { picking_type: dataRefrech };
+
 	// Modal
 	const [ isModalVisible, setisModalVisible ] = useState(false);
 	const [ isModalVisiblePage, setisModalVisiblePage ] = useState(false);
 
 	// Refrech
+	const kettypeRefrech = { picking_type: dataRefrech };
 	const [ refreshing, setRefreshing ] = useState(false);
 	const wait = (timeout) => {
 		return new Promise((resolve) => setTimeout(resolve, timeout));
 	};
-
 	const onRefresh = React.useCallback(async () => {
 		setRefreshing(true);
 		try {
@@ -97,7 +96,16 @@ const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
 	};
 
 	const onPressPage = () => {
-		setisModalVisiblePage(true);
+		setisModalVisiblePage(false);
+		setisModalVisible(false);
+		onPressScan({
+			document: inputDocument,
+			remark: inputRemark,
+			pickingDate: inputPickingDate,
+			id: inputid,
+			status: inputStatus,
+			intext: inputIntext
+		})
 	};
 
 	const onPressCancel = () => {
@@ -118,11 +126,9 @@ const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
 			]);
 			return true;
 		};
-
 		const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
-
 		return () => backHandler.remove();
-	},[]);
+	}, []);
 
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
@@ -198,20 +204,24 @@ const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
 												{item.picking_product_name}
 											</Text>
 										</View>
+
 										<View style={datalistModalStyle.viewQuantity}>
 											<View>
 												<Text style={datalistModalStyle.textActual}>จำนวน:</Text>
 											</View>
+
 											<View style={datalistModalStyle.viewNumber}>
 												<Text style={datalistModalStyle.textProductLogsQty}>
 													{item.product_logs_qty}
 												</Text>
 											</View>
+
 											<View>
 												<Text style={datalistModalStyle.textRequestQty}>
 													/{item.request_qty}
 												</Text>
 											</View>
+
 											<View style={{ marginLeft: 10 }}>
 												<Text style={datalistModalStyle.textPickingProductUnit}>
 													{item.picking_product_unit}
@@ -232,11 +242,7 @@ const DatalistCpn = ({ dataObject, dataRefrech, onPressBack }) => {
 
 							<View>
 								<TouchableOpacity onPress={() => onPressCancel()} style={datalistModalStyle.toCancel}>
-									<Text
-										style={datalistModalStyle.textcancel}
-									>
-										ยกเลิก
-									</Text>
+									<Text style={datalistModalStyle.textcancel}>ยกเลิก</Text>
 								</TouchableOpacity>
 							</View>
 						</View>
