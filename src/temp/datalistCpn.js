@@ -16,7 +16,7 @@ import {
 	View
 } from 'react-native';
 // Component
-import CardData from './card/cardData';
+import CardData from '../components/card/cardData';
 import DatalistModal from '../components/modal/datalistModal';
 // Style
 import { datalistStyle } from '../styles/datalistStyle';

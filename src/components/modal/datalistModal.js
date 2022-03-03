@@ -3,8 +3,8 @@ import React from 'react';
 // Framework
 import { ScrollView, Text, View } from 'react-native';
 // Style
-
 import { datalistModalStyle } from '../../styles/modal/datalistModalStyle';
+
 const datalistModal = ({ inputDocument, inputPickingDate, inputRemark }) => {
 	return (
 		<View>
