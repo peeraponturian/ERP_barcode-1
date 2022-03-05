@@ -5,6 +5,7 @@ export const cardStyle = StyleSheet.create({
 	viewLayoutCard: {
 		flexDirection: 'column'
 	},
+
 	// FirstRow
 	viewFirstRow: {
 		flexDirection: 'row',
@@ -16,6 +17,7 @@ export const cardStyle = StyleSheet.create({
 		alignSelf: 'flex-end',
 		width: 210
 	},
+
 	// SecondRow
 	viewSecondRow: {
 		flexDirection: 'row',
@@ -35,6 +37,7 @@ export const cardStyle = StyleSheet.create({
 		alignSelf: 'flex-end',
 		width: 140
 	},
+
 	// ThirdRow
 	viewThirdRow: {
 		flexDirection: 'row',
@@ -44,6 +47,7 @@ export const cardStyle = StyleSheet.create({
 	viewDate: {
 		marginLeft: 10
 	},
+
 	// FourthRow
 	viewFourthRow: {
 		flexDirection: 'row',
@@ -55,6 +59,7 @@ export const cardStyle = StyleSheet.create({
 		marginLeft: 10,
 		width: 345
 	},
+
 	// Text
 	// FirstRow
 	textType: {
@@ -70,6 +75,7 @@ export const cardStyle = StyleSheet.create({
 		fontWeight: 'bold',
 		fontSize: 20
 	},
+
 	// SecondRow
 	textDocument: {
 		color: '#000',
@@ -80,6 +86,7 @@ export const cardStyle = StyleSheet.create({
 		fontWeight: 'bold',
 		fontSize: 20
 	},
+
 	// ThirdRow
 	textDate: {
 		color: 'rgba(0,0,0,0.5)',
@@ -91,6 +98,7 @@ export const cardStyle = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold'
 	},
+	
 	// FourthRow
 	textRemark: {
 		color: 'rgba(0,0,0,0.5)',

@@ -6,7 +6,7 @@ import { Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 // Style
-import { cardStyle } from '../../styles/card/cardStyle';
+import { cardStyle } from '../../styles/componentStyle/card/cardStyle';
 
 const CardData = ({ item }) => {
 	return (

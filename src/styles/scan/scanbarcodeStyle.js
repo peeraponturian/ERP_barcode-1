@@ -1,8 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export const scanbarcodeStyle = StyleSheet.create({
+	// Page
 	// View
-	content: {
+	viewBody: {
+		flex: 1
+	},
+	viewContent: {
 		alignItems: 'center',
 		flex: 1,
 		flexDirection: 'column',
@@ -10,53 +14,35 @@ export const scanbarcodeStyle = StyleSheet.create({
 		padding: 5,
 		width: 481
 	},
-	viewBody: {
-		height: 280
-		// paddingLeft: 10
-	},
-	viewTitle: {
-		fontWeight: 'bold',
-		height: 65,
-		marginBottom: 5,
-		width: 400
-	},
-	viewData: {
+	viewInput: {
+		alignSelf: 'center',
 		flexDirection: 'row',
-		marginTop: 10,
-		paddingLeft: 20,
-		width: 445
+		height: 70
 	},
-	viewText: {
-		height: 30,
-		marginTop: 5,
-		marginBottom: 5,
-		width: 100
+	viewFlatlist: {
+		height: 330,
+		alignSelf: 'center'
 	},
-	viewTextInput: {
+	// TextInput
+	textinput: {
 		backgroundColor: '#FFF',
-		borderColor: 'rgba(0,0,0,0.1)',
-		borderWidth: 1,
-		height: 30,
+		fontSize: 20,
 		marginTop: 5,
 		marginBottom: 5,
-		width: 325
+		height: 60,
+		width: 380,
+		borderColor: '#5787A4',
+		borderWidth: 2,
+		borderRadius: 2.5,
+		textAlign: 'center',
+		color: '#5787A4'
 	},
-	// Text
-	textTitle: {
-		color: '#5787A4',
+	// Flatlist
+	flatlistData: {
+		marginTop: 5,
+		marginBottom: 5,
 		fontWeight: 'bold',
-		fontSize: 38,
-		marginBottom: 10,
-		marginTop: 10
-	},
-	textData: {
-		color: '#5787A4',
-		fontWeight: 'bold'
-	},
-	textInput: {
-		color: '#5787A4',
-		justifyContent: 'center',
-		padding: 3,
-		textAlign: 'center'
+		height: 50,
+		width: 425
 	}
 });
