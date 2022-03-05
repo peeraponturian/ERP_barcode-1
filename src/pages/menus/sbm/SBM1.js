@@ -1,0 +1,46 @@
+// Library
+import React from 'react';
+// Framework
+import { Text, View } from 'react-native';
+import axios from 'axios';
+// Component
+import HeadbarCpn from '../../../components/headbar/headbarCpn';
+import Datalist from '../../../temp/datalistCpn';
+// Icon
+
+// Style
+
+const baseUrl = 'http://192.168.1.25/';
+const keytype = { picking_type: 'sbm' };
+const url = `${baseUrl}erp_barcode/backend/picking/get_hd`;
+
+export default class SBM1 extends React.Component {
+	state = {
+		persons: {},
+		refrech: 'pms'
+	};
+	// lifecycle
+	componentDidMount() {
+		axios.post(url, keytype).then((res) => {
+			const persons = res.data.data.items;
+			this.setState({ persons });
+			// console.log( persons )
+		});
+	}
+
+	render() {
+		return (
+			<View style={{ flex: 1 }}>
+				<HeadbarCpn
+					onPressBack={() => this.props.navigation.goBack()}
+					onPressDetail={() => this.props.navigation.navigate('Menu')}
+					onPressUser={() => this.props.navigation.navigate('Profile')}
+					Title={'จ่ายสินค้า'}
+				/>
+				<View style={{ height: 650 }}>
+					<Datalist dataObject={this.state.persons} dataRefrech={this.state.refrech} />
+				</View>
+			</View>
+		);
+	}
+}
