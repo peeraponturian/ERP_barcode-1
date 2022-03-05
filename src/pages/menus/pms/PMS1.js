@@ -90,7 +90,6 @@ export default class PMS1 extends React.Component {
 
 	// onPress
 	onPressItem = async (item) => {
-		// async
 		// if (item.picking_status == 2) {
 		// 	Alert.alert('คำเตือน', 'ใบงาน กำลังดำเนินการเช็คสินค้าอยู่', [
 		// 		{ text: 'ตกลง', onPress: () => console.log('ตกลง') }

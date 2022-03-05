@@ -17,7 +17,7 @@ import SBM1 from './src/pages/menus/sbm/SBM1';
 // import Wh5 from "./src/Screen/Menu/WM/WH-Menu5";
 // import Wh6 from "./src/Screen/Menu/WM/WH-Menu6";
 // import O1 from "./src/Screen/Menu/Other/O-Menu1";
-import Scanbarcode from './src/components/scan/scanbarcodeCpn';
+import Scanbarcode from "./src/pages/scanbarcode"
 const Stack = createNativeStackNavigator();
 const screenOptionStyle = { headerShown: false };
 export default function App() {
@@ -31,14 +31,14 @@ export default function App() {
 				{/* <Stack.Screen name="Pmm2" component={Pmm2} /> */}
 				<Stack.Screen name="SBM1" component={SBM1} />
 				{/* <Stack.Screen name="Sbm2" component={Sbm2} />
-        <Stack.Screen name="Wh1" component={Wh1} />
-        <Stack.Screen name="Wh2" component={Wh2} />
-        <Stack.Screen name="Wh3" component={Wh3} />
-        <Stack.Screen name="Wh4" component={Wh4} />
-        <Stack.Screen name="Wh5" component={Wh5} />
-        <Stack.Screen name="Wh6" component={Wh6} />
-        <Stack.Screen name="O1" component={O1} /> */}
-        <Stack.Screen name="Scanbarcode" component={Scanbarcode} />
+				<Stack.Screen name="Wh1" component={Wh1} />
+				<Stack.Screen name="Wh2" component={Wh2} />
+				<Stack.Screen name="Wh3" component={Wh3} />
+				<Stack.Screen name="Wh4" component={Wh4} />
+				<Stack.Screen name="Wh5" component={Wh5} />
+				<Stack.Screen name="Wh6" component={Wh6} />
+				<Stack.Screen name="O1" component={O1} /> */}
+				<Stack.Screen name="Scanbarcode" component={Scanbarcode} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

@@ -10,7 +10,8 @@ export const headbarCpn = StyleSheet.create({
 		margin: 0,
 		padding: 1,
 		paddingTop: 25,
-		width: 480
+		width: 480,
+		zIndex: 20
 	},
 	viewTitle: {
 		marginLeft: 10,
