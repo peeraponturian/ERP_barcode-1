@@ -1,3 +1,3 @@
 "# miccell-test" 
-set UAT
-Create DEV
+create UAT
+create DEV
