@@ -102,10 +102,7 @@ const scanModal = ({
 
 									<View style={scanModalStyle.viewIconDelete}>
 										<TouchableOpacity>
-											<FontAwesomeIcon
-												icon={faTrash}
-												style={scanModalStyle.iconTrash}
-											/>
+											<FontAwesomeIcon icon={faTrash} style={scanModalStyle.iconTrash} />
 										</TouchableOpacity>
 									</View>
 								</View>
