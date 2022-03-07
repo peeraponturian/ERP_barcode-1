@@ -11,7 +11,7 @@ export const headbarCpn = StyleSheet.create({
 		padding: 1,
 		paddingTop: 25,
 		width: 480,
-		zIndex: 20
+		zIndex: 99
 	},
 	viewTitle: {
 		marginLeft: 10,

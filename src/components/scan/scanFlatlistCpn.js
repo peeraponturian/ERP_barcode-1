@@ -55,7 +55,7 @@ const scanFlatlistCpn = ({ item }) => {
 								<View style={scanFlatlisttyle.viewId}>
 									<View style={scanFlatlisttyle.viewIdSpace}>
 										<Text style={scanFlatlisttyle.textId}>
-											{/* {setConstqty(DataInsbm, DataIdInSend, item.id, DataPLQInSend)} */}.000
+											{/* {setConstqty(DataInsbm, DataIdInSend, , DataPLQInSend)} */}{item.id}.000
 										</Text>
 									</View>
 

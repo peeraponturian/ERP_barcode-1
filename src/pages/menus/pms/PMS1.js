@@ -11,17 +11,16 @@ import {
 	Pressable,
 	RefreshControl,
 	SafeAreaView,
-	StyleSheet,
 	Text,
 	TextInput,
 	TouchableOpacity,
 	View
 } from 'react-native';
 // Component
-import CardData from '../../../components/card/cardData';
-import DatalistModal from '../../../components/modal/datalistModal';
 import HeadbarCpn from '../../../components/headbar/headbarCpn';
-// Icon
+import MenuCardCpn from '../../../components/menu/menuCardCpn';
+import MenuModalCpn from '../../../components/menu/menuModalCpn';
+import MenuFlatlistCpn from '../../../components/menu/menuFlatlistCpn';
 // Style
 import { datalistStyle } from '../../../styles/datalistStyle';
 import { datalistModalStyle } from '../../../styles/modal/datalistModalStyle';
@@ -32,10 +31,11 @@ const keytype = { picking_type: 'pms' };
 const url = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 const urlInlist = `${baseUrl}erp_barcode/backend/picking/get_dt`;
 // Refresh
-const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 const kettypeRefrech = { picking_type: 'sbm' };
+const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 
 export default class PMS1 extends React.Component {
+	// Data
 	state = {
 		//
 		modalVisible: false,
@@ -63,29 +63,6 @@ export default class PMS1 extends React.Component {
 	// Modal
 	setModalVisible = (visible) => {
 		this.setState({ modalVisible: visible });
-	};
-
-	// Refresh
-	wait = (timeout) => {
-		return new Promise((resolve) => setTimeout(resolve, timeout));
-	};
-	onRefresh = async () => {
-		this.setState({ refreshing: true });
-		try {
-			const responseRefrech = await axios.post(urlRefrech, kettypeRefrech);
-			if (responseRefrech.status === 200) {
-				const persons = responseRefrech.data.data.items;
-				this.setState({ persons });
-				console.log(responseRefrech.data.data.items);
-				this.wait(0).then(() => {
-					this.setState({ refreshing: false });
-				});
-			} else {
-				throw new Error('Failed to fetch Data');
-			}
-		} catch (error) {
-			console.error(error);
-		}
 	};
 
 	// onPress
@@ -124,18 +101,41 @@ export default class PMS1 extends React.Component {
 		} else {
 		}
 	};
-	onPressSubmit= () => {
+	onPressSubmit = () => {
 		this.setModalVisible(false);
-		this.props.navigation.navigate('Scanbarcode',{
+		this.props.navigation.navigate('Scanbarcode', {
 			inputDocument: this.state.document,
 			inputRemark: this.state.remark,
 			inputPickingDate: this.state.pickingDate,
 			secondData: this.state.secondData
-		})
-	}
+		});
+	};
 	onPressCancel = () => {
 		this.setModalVisible(false);
-	}
+	};
+
+	// Refresh
+	wait = (timeout) => {
+		return new Promise((resolve) => setTimeout(resolve, timeout));
+	};
+	onRefresh = async () => {
+		this.setState({ refreshing: true });
+		try {
+			const responseRefrech = await axios.post(urlRefrech, kettypeRefrech);
+			if (responseRefrech.status === 200) {
+				const persons = responseRefrech.data.data.items;
+				this.setState({ persons });
+				console.log(responseRefrech.data.data.items);
+				this.wait(0).then(() => {
+					this.setState({ refreshing: false });
+				});
+			} else {
+				throw new Error('Failed to fetch Data');
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	render() {
 		const { modalVisible } = this.state;
@@ -181,7 +181,7 @@ export default class PMS1 extends React.Component {
 											style={datalistStyle.toCard}
 											onPress={() => this.onPressItem(item)}
 										>
-											<CardData item={item} />
+											<MenuCardCpn item={item} />
 										</TouchableOpacity>
 									)}
 								/>
@@ -199,7 +199,7 @@ export default class PMS1 extends React.Component {
 							<View style={datalistModalStyle.container}>
 								<View style={datalistModalStyle.viewModal}>
 									<View style={datalistModalStyle.viewLayoutText}>
-										<DatalistModal
+										<MenuModalCpn
 											inputDocument={this.state.document}
 											inputRemark={this.state.remark}
 											inputPickingDate={this.state.pickingDate}
@@ -211,39 +211,7 @@ export default class PMS1 extends React.Component {
 											style={datalistModalStyle.flatlistCard}
 											data={this.state.secondData}
 											keyExtractor={(item) => item.id.toString()}
-											renderItem={({ item }) => (
-												<View style={datalistModalStyle.viewFLCard}>
-													<View>
-														<Text style={datalistModalStyle.textTitle}>
-															{item.picking_product_name}
-														</Text>
-													</View>
-
-													<View style={datalistModalStyle.viewQuantity}>
-														<View>
-															<Text style={datalistModalStyle.textActual}>จำนวน:</Text>
-														</View>
-
-														<View style={datalistModalStyle.viewNumber}>
-															<Text style={datalistModalStyle.textProductLogsQty}>
-																{item.product_logs_qty}
-															</Text>
-														</View>
-
-														<View>
-															<Text style={datalistModalStyle.textRequestQty}>
-																/{item.request_qty}
-															</Text>
-														</View>
-
-														<View style={{ marginLeft: 10 }}>
-															<Text style={datalistModalStyle.textPickingProductUnit}>
-																{item.picking_product_unit}
-															</Text>
-														</View>
-													</View>
-												</View>
-											)}
+											renderItem={({ item }) => <MenuFlatlistCpn item={item} />}
 										/>
 									</View>
 
