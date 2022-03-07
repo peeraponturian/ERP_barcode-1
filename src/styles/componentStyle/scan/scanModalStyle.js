@@ -140,127 +140,127 @@ export const scanModalStyle = StyleSheet.create({
 		marginTop: 10
 	},
 
-    // TouchableOpacity
-    toSubmit:{
-        marginTop: 5,
-        backgroundColor: 'white',
-        paddingHorizontal: 5,
-        alignItems: 'center',
-        height: 30,
-        borderColor: '#5787A4',
-        borderWidth: 1,
-        borderBottomLeftRadius: 5,
-        borderTopLeftRadius: 5
-    },
-    toCancel:{
-        marginTop: 5,
-        backgroundColor: 'white',
-        paddingHorizontal: 5,
-        alignItems: 'center',
-        height: 30,
-        borderColor: '#5787A4',
-        borderWidth: 1,
-        borderBottomRightRadius: 5,
-        borderTopRightRadius: 5
-    },
-    // TextInput
-    tiLot:{
-        color: '#5787A4',
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        padding: 3,
-        textAlign: 'center'
-    },
-    itQty:{
-        color: '#5787A4',
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        padding: 3,
-        textAlign: 'center'
-    },
-    // Text
-    textTitle:{
-        color: '#5787A4',
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 10,
-        marginTop: 10,
-        paddingRight: 255,
-        textAlign: 'center'
-    },
-    textProductName:{
-        color: '#5787A4',
-        fontWeight: 'bold'
-    },
-    textProductNameData:{
-        color: '#5787A4',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        justifyContent: 'center',
-        padding: 3
-    },
-    textItemCode:{
-        color: '#5787A4',
-        fontWeight: 'bold'
-    },
-    textItemCodeData:{
-        color: '#5787A4',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        justifyContent: 'center',
-        padding: 3
-    },
-    textLogsQty:{
-        fontWeight: 'bold',
-        color: '#5787A4',
-        marginTop: 12,
-        alignSelf: 'center',
-        fontSize: 16
-    },
-    textLogsQtyData:{
-        marginLeft: 0,
-        fontWeight: 'bold',
-        color: '#FFA500',
-        marginTop: 8,
-        fontSize: 20
-    },
-    textLogsQtyDataplus:{
-        fontWeight: 'bold',
-        color: '#5787A4',
-        marginTop: 8,
-        fontSize: 20
-    },
-    textCreateLot:{
-        color: '#5787A4',
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        padding: 3,
-        textAlign: 'center'
-    },
-    textLot:{
-        color: '#5787A4',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    textQty:{
-        color: '#5787A4',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    textButtonSubmit:{
-        marginVertical: 3,
-        fontSize: 15,
-        fontWeight: 'bold',
-        marginLeft: 1,
-        color: '#5787A4'
-    },
-    textButtonCancel:{
-        marginVertical: 3,
-        fontSize: 15,
-        fontWeight: 'bold',
-        marginLeft: 1,
-        color: '#5787A4'
-    },
+	// TouchableOpacity
+	toSubmit: {
+		marginTop: 5,
+		backgroundColor: 'white',
+		paddingHorizontal: 5,
+		alignItems: 'center',
+		height: 30,
+		borderColor: '#5787A4',
+		borderWidth: 1,
+		borderBottomLeftRadius: 5,
+		borderTopLeftRadius: 5
+	},
+	toCancel: {
+		marginTop: 5,
+		backgroundColor: 'white',
+		paddingHorizontal: 5,
+		alignItems: 'center',
+		height: 30,
+		borderColor: '#5787A4',
+		borderWidth: 1,
+		borderBottomRightRadius: 5,
+		borderTopRightRadius: 5
+	},
+	// TextInput
+	tiLot: {
+		color: '#5787A4',
+		fontWeight: 'bold',
+		justifyContent: 'center',
+		padding: 3,
+		textAlign: 'center'
+	},
+	itQty: {
+		color: '#5787A4',
+		fontWeight: 'bold',
+		justifyContent: 'center',
+		padding: 3,
+		textAlign: 'center'
+	},
+	// Text
+	textTitle: {
+		color: '#5787A4',
+		fontSize: 20,
+		fontWeight: 'bold',
+		marginBottom: 10,
+		marginTop: 10,
+		paddingRight: 255,
+		textAlign: 'center'
+	},
+	textProductName: {
+		color: '#5787A4',
+		fontWeight: 'bold'
+	},
+	textProductNameData: {
+		color: '#5787A4',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		justifyContent: 'center',
+		padding: 3
+	},
+	textItemCode: {
+		color: '#5787A4',
+		fontWeight: 'bold'
+	},
+	textItemCodeData: {
+		color: '#5787A4',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		justifyContent: 'center',
+		padding: 3
+	},
+	textLogsQty: {
+		fontWeight: 'bold',
+		color: '#5787A4',
+		marginTop: 12,
+		alignSelf: 'center',
+		fontSize: 16
+	},
+	textLogsQtyData: {
+		marginLeft: 0,
+		fontWeight: 'bold',
+		color: '#FFA500',
+		marginTop: 8,
+		fontSize: 20
+	},
+	textLogsQtyDataplus: {
+		fontWeight: 'bold',
+		color: '#5787A4',
+		marginTop: 8,
+		fontSize: 20
+	},
+	textCreateLot: {
+		color: '#5787A4',
+		fontWeight: 'bold',
+		justifyContent: 'center',
+		padding: 3,
+		textAlign: 'center'
+	},
+	textLot: {
+		color: '#5787A4',
+		fontSize: 20,
+		fontWeight: 'bold'
+	},
+	textQty: {
+		color: '#5787A4',
+		fontSize: 20,
+		fontWeight: 'bold'
+	},
+	textButtonSubmit: {
+		marginVertical: 3,
+		fontSize: 15,
+		fontWeight: 'bold',
+		marginLeft: 1,
+		color: '#5787A4'
+	},
+	textButtonCancel: {
+		marginVertical: 3,
+		fontSize: 15,
+		fontWeight: 'bold',
+		marginLeft: 1,
+		color: '#5787A4'
+	},
 	// ScrollView
 	svProductNameData: {
 		backgroundColor: '#FFF',
@@ -276,5 +276,17 @@ export const scanModalStyle = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'column',
 		height: 310
+	},
+	// Icon
+	iconCreateLot: {
+		alignItems: 'center',
+		alignSelf: 'center',
+		marginTop: 2
+	},
+	iconTrash: {
+		alignItems: 'center',
+		alignSelf: 'center',
+		marginTop: 5,
+		marginLeft: 1
 	}
 });

@@ -37,14 +37,7 @@ const scanModal = ({
 					<View style={scanModalStyle.view}>
 						<View style={scanModalStyle.viewLayoutData}>
 							<View style={scanModalStyle.viewProductName}>
-								<Text
-									style={{
-										color: '#5787A4',
-										fontWeight: 'bold'
-									}}
-								>
-									ชื่อสินค้า
-								</Text>
+								<Text style={scanModalStyle.textProductName}>ชื่อสินค้า</Text>
 							</View>
 
 							<ScrollView style={scanModalStyle.svProductNameData}>
@@ -77,10 +70,7 @@ const scanModal = ({
 								<View style={scanModalStyle.viewCreateLot}>
 									<View style={{ flexDirection: 'column' }}>
 										<View>
-											<FontAwesomeIcon
-												icon={faPlus}
-												style={{ alignItems: 'center', alignSelf: 'center', marginTop: 2 }}
-											/>
+											<FontAwesomeIcon icon={faPlus} style={scanModalStyle.iconCreateLot} />
 										</View>
 									</View>
 
@@ -114,12 +104,7 @@ const scanModal = ({
 										<TouchableOpacity>
 											<FontAwesomeIcon
 												icon={faTrash}
-												style={{
-													alignItems: 'center',
-													alignSelf: 'center',
-													marginTop: 5,
-													marginLeft: 1
-												}}
+												style={scanModalStyle.iconTrash}
 											/>
 										</TouchableOpacity>
 									</View>
