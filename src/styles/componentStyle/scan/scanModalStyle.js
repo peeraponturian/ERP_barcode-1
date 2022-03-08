@@ -27,7 +27,8 @@ export const scanModalStyle = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	viewLayoutDataPlus: {
-		flexDirection: 'row'
+		flexDirection: 'row',
+		marginBottom: 10
 	},
 	viewProductName: {
 		height: 30,
