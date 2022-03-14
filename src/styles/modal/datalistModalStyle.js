@@ -30,24 +30,18 @@ export const datalistModalStyle = StyleSheet.create({
 		borderTopWidth: 1,
 		flex: 4
 	},
-	viewFLCard: {
-		alignItems: 'flex-start',
-		backgroundColor: '#fff',
-		borderColor: 'grey',
-		borderRadius: 5,
-		borderWidth: 1,
-		flexDirection: 'column',
-		marginBottom: 10
-	},
-	viewQuantity: {
-		alignSelf: 'flex-end',
-		flexDirection: 'row',
+	viewLoading: {
+		fontWeight: 'bold',
+		height: 50,
+		marginTop: 5,
 		marginBottom: 5,
-		marginRight: 10
+		width: 340
 	},
-	viewNumber: {
-		marginLeft: 10,
-		marginBottom: 5
+	viewLayoutLoading: {
+		alignItems: 'center',
+		flex: 1,
+		justifyContent: 'center',
+		marginTop: 150
 	},
 	// TouchableOpacity
 	toSubmit: {
@@ -69,34 +63,6 @@ export const datalistModalStyle = StyleSheet.create({
 		paddingHorizontal: 20
 	},
 	// Text
-	textTitle: {
-		fontSize: 15,
-		fontWeight: 'bold',
-		marginLeft: 10,
-		marginVertical: 3,
-		width: 315
-	},
-	textActual: {
-		color: 'rgba(0,0,0,0.5)',
-		fontSize: 15,
-		fontWeight: 'bold'
-	},
-	textProductLogsQty: {
-		color: '#000',
-		fontSize: 15,
-		fontWeight: 'bold',
-		textAlign: 'right'
-	},
-	textRequestQty: {
-		color: '#000',
-		fontSize: 15,
-		fontWeight: 'bold'
-	},
-	textPickingProductUnit: {
-		color: 'rgba(0,0,0,0.5)',
-		fontSize: 15,
-		fontWeight: 'bold'
-	},
 	textSubmit: {
 		color: '#FFFFFF',
 		fontSize: 15,
@@ -118,59 +84,5 @@ export const datalistModalStyle = StyleSheet.create({
 		marginTop: 5,
 		marginBottom: 5,
 		width: 340
-	},
-	// Component
-	// View
-	viewTitleModal: {
-		flex: 1
-	},
-	viewLayout: {
-		flexDirection: 'row'
-	},
-	view: {
-		height: 30,
-		marginBottom: 5,
-		marginTop: 5,
-		width: 100
-	},
-	viewDisplay:{
-		backgroundColor: '#fff',
-		borderColor: '#D3D3D3',
-		borderWidth: 1,
-		height: 30,
-		marginBottom: 5,
-		marginTop: 5,
-		width: 240
-	},
-	// Text
-	textTitleModal: {
-		color: '#5787A4',
-		fontSize: 20,
-		fontWeight: 'bold',
-		marginBottom: 10,
-		marginTop: 10,
-		paddingRight: 255,
-		textAlign: 'center'
-	},
-	text:{
-		color: '#5787A4',
-		fontWeight: 'bold',
-		padding: 3
-	},
-	textDisplay:{
-		color: '#5787A4',
-		justifyContent: 'center',
-		padding: 3,
-		textAlign: 'center'
-	},
-	// ScrollView
-	svDisplay:{
-		backgroundColor: '#fff',
-		borderColor: '#D3D3D3',
-		borderWidth: 1,
-		height: 30,
-		marginBottom: 5,
-		marginTop: 5,
-		width: 100
-	},
+	}
 });

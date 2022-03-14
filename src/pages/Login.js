@@ -76,11 +76,11 @@ export default class Login extends React.Component {
 				</View>
 				{/* pincode number */}
 				<View style={loginStyles.pinNumber}>
-					{numbers.map((num) => {
+					{numbers.map((num, index) => {
 						return (
 							<TouchableOpacity
 								style={loginStyles.number}
-								key={num.id}
+								key={index}
 								onPress={() => this.onPressNumber(num.id)}
 							>
 								<Text style={loginStyles.numberText}>{num.id}</Text>

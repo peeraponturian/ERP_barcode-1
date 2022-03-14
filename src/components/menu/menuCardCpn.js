@@ -6,78 +6,78 @@ import { Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 // Style
-import { cardStyle } from '../../styles/componentStyle/menu/menuCardStyle';
+import { cardCpnStyle } from '../../styles/componentStyle/menu/menuCardStyle';
 
 const CardData = ({ item }) => {
 	return (
-		<View style={cardStyle.viewLayoutCard}>
-			<View style={cardStyle.viewFirstRow}>
-				<Text style={cardStyle.textType}>ประเภท : </Text>
-				<Text style={cardStyle.textSubType}>ใบสั่งขาย</Text>
-				<View style={cardStyle.viewStatus}>
+		<View style={cardCpnStyle.viewLayoutCard}>
+			<View style={cardCpnStyle.viewFirstRow}>
+				<Text style={cardCpnStyle.textType}>ประเภท : </Text>
+				<Text style={cardCpnStyle.textSubType}>ใบสั่งขาย</Text>
+				<View style={cardCpnStyle.viewStatus}>
 					<View>
-                        {item.picking_status == 1 ? (<Text style={[cardStyle.textStatus,{color: '#1E90FF'}]}>รอดำเนินการ</Text>) : null}
+                        {item.picking_status == 1 ? (<Text style={[cardCpnStyle.textStatus,{color: '#1E90FF'}]}>รอดำเนินการ</Text>) : null}
 					</View>
 
 					<View>
-						{item.picking_status == 2 ? (<Text style={[cardStyle.textStatus,{color: '#FF0000'}]}>กำลังดำเนินการ</Text>) : null}
+						{item.picking_status == 2 ? (<Text style={[cardCpnStyle.textStatus,{color: '#FF0000'}]}>กำลังดำเนินการ</Text>) : null}
 					</View>
 
 					<View>
-						{item.picking_status == 6 ? (<Text style={[cardStyle.textStatus,{color: '#FF8C00'}]}>พักใบงาน</Text>) : null}
+						{item.picking_status == 6 ? (<Text style={[cardCpnStyle.textStatus,{color: '#FF8C00'}]}>พักใบงาน</Text>) : null}
 					</View>
 
 					<View>
-						{item.picking_status == 8 ? (<Text style={[cardStyle.textStatus,{color: '#006400'}]}>เสร็จแล้ว</Text>) : null}
+						{item.picking_status == 8 ? (<Text style={[cardCpnStyle.textStatus,{color: '#006400'}]}>เสร็จแล้ว</Text>) : null}
 					</View>
 
 					<View>
-						{item.picking_status == 9 ? (<Text style={[cardStyle.textStatus,{color: '#8B0000'}]}>ยกเลิก</Text>) : null}
+						{item.picking_status == 9 ? (<Text style={[cardCpnStyle.textStatus,{color: '#8B0000'}]}>ยกเลิก</Text>) : null}
 					</View>
 				</View>
 			</View>
 
-			<View style={cardStyle.viewSecondRow}>
-				<View style={cardStyle.viewIcon}>
+			<View style={cardCpnStyle.viewSecondRow}>
+				<View style={cardCpnStyle.viewIcon}>
 					<FontAwesomeIcon icon={faClipboardList} color={'orange'} size={25} />
 				</View>
 
-				<View style={cardStyle.viewDocument}>
-					<Text style={cardStyle.textDocument}>{item.document}</Text>
+				<View style={cardCpnStyle.viewDocument}>
+					<Text style={cardCpnStyle.textDocument}>{item.document}</Text>
 				</View>
 
-				<View style={cardStyle.viewSubStatus}>
+				<View style={cardCpnStyle.viewSubStatus}>
 					<View>
-						{item.docuStatus == 'N' ? (<Text style={[cardStyle.textSubStatus,{color: '#7CFC00'}]}>N</Text>) : null}
+						{item.docuStatus == 'N' ? (<Text style={[cardCpnStyle.textSubStatus,{color: '#7CFC00'}]}>N</Text>) : null}
 					</View>
 
 					<View>
-						{item.docuStatus == 'P' ? (<Text style={[cardStyle.textSubStatus,{color: '#FFD700'}]}>P</Text>) : null}
+						{item.docuStatus == 'P' ? (<Text style={[cardCpnStyle.textSubStatus,{color: '#FFD700'}]}>P</Text>) : null}
 					</View>
 
 					<View>
-						{item.docuStatus == 'Y' ? (<Text style={[cardStyle.textSubStatus,{color: '#F08080'}]}>A</Text>) : null}
+						{item.docuStatus == 'Y' ? (<Text style={[cardCpnStyle.textSubStatus,{color: '#F08080'}]}>A</Text>) : null}
 					</View>
 				</View>
 			</View>
 
-			<View style={cardStyle.viewThirdRow}>
+			<View style={cardCpnStyle.viewThirdRow}>
 				<View>
-					<Text style={cardStyle.textDate}>วันที่เอกสาร :</Text>
+					<Text style={cardCpnStyle.textDate}>วันที่เอกสาร :</Text>
 				</View>
 
-				<View style={cardStyle.viewDate}>
-					<Text style={cardStyle.textSubDate}>{item.picking_date}</Text>
+				<View style={cardCpnStyle.viewDate}>
+					<Text style={cardCpnStyle.textSubDate}>{item.picking_date}</Text>
 				</View>
 			</View>
 
-			<View style={cardStyle.viewFourthRow}>
+			<View style={cardCpnStyle.viewFourthRow}>
 				<View>
-					<Text style={cardStyle.textRemark}>ลูกค้า :</Text>
+					<Text style={cardCpnStyle.textRemark}>ลูกค้า :</Text>
 				</View>
 
-				<View style={cardStyle.viewRemark}>
-					<Text style={cardStyle.textSubRemark}>{item.remark}</Text>
+				<View style={cardCpnStyle.viewRemark}>
+					<Text style={cardCpnStyle.textSubRemark}>{item.remark}</Text>
 				</View>
 			</View>
 		</View>

@@ -2,37 +2,38 @@
 import React from 'react';
 // Framework
 import { Text, View } from 'react-native';
+
 // Style
-import { datalistModalStyle } from '../../styles/modal/datalistModalStyle';
+import { flatlistCpnStyle } from '../../styles/componentStyle/menu/menuFlatlistStyle';
 
 const menuFlatlistCpn = ({ item }) => {
 	return (
-		<View style={datalistModalStyle.viewFLCard}>
+		<View style={flatlistCpnStyle.viewFLCard}>
             <View>
-                <Text style={datalistModalStyle.textTitle}>
+                <Text style={flatlistCpnStyle.textTitle}>
                     {item.picking_product_name}
                 </Text>
             </View>
 
-            <View style={datalistModalStyle.viewQuantity}>
+            <View style={flatlistCpnStyle.viewQuantity}>
                 <View>
-                    <Text style={datalistModalStyle.textActual}>จำนวน:</Text>
+                    <Text style={flatlistCpnStyle.textActual}>จำนวน:</Text>
                 </View>
 
-                <View style={datalistModalStyle.viewNumber}>
-                    <Text style={datalistModalStyle.textProductLogsQty}>
+                <View style={flatlistCpnStyle.viewNumber}>
+                    <Text style={flatlistCpnStyle.textProductLogsQty}>
                         {item.product_logs_qty}
                     </Text>
                 </View>
 
                 <View>
-                    <Text style={datalistModalStyle.textRequestQty}>
+                    <Text style={flatlistCpnStyle.textRequestQty}>
                         /{item.request_qty}
                     </Text>
                 </View>
 
                 <View style={{ marginLeft: 10 }}>
-                    <Text style={datalistModalStyle.textPickingProductUnit}>
+                    <Text style={flatlistCpnStyle.textPickingProductUnit}>
                         {item.picking_product_unit}
                     </Text>
                 </View>

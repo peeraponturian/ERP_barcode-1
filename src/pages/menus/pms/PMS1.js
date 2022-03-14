@@ -3,6 +3,7 @@ import React from 'react';
 // Framework
 import axios from 'axios';
 import {
+	ActivityIndicator,
 	Alert,
 	BackHandler,
 	FlatList,
@@ -35,21 +36,26 @@ const kettypeRefrech = { picking_type: 'sbm' };
 const urlRefrech = `${baseUrl}erp_barcode/backend/picking/get_hd`;
 
 export default class PMS1 extends React.Component {
-	// Data
-	state = {
-		//
-		modalVisible: false,
-		persons: {},
-		refreshing: false,
-		secondData: {},
-		//
-		document: '',
-		id: '',
-		intext: '',
-		pickingDate: '',
-		remark: '',
-		pickingStatus: ''
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			//
+			modalVisible: false,
+			persons: {},
+			refreshing: false,
+			secondData: {},
+			//
+			bgColor: '',
+			document: '',
+			id: '',
+			intext: '',
+			pickingDate: '',
+			remark: '',
+			pickingStatus: '',
+			//
+			isLoading: true
+		};
+	}
 
 	// Lifecycle
 	componentDidMount() {
@@ -59,6 +65,8 @@ export default class PMS1 extends React.Component {
 			console.log(persons);
 		});
 	}
+
+	// Loading
 
 	// Modal
 	setModalVisible = (visible) => {
@@ -74,22 +82,22 @@ export default class PMS1 extends React.Component {
 		// }
 		if (true) {
 			this.setModalVisible(true);
+			this.setState({ bgColor: '#f5f5fa' });
 			this.setState({ document: item.document });
 			this.setState({ id: item.id });
 			this.setState({ intext: item.intext });
 			this.setState({ pickingDate: item.picking_date });
 			this.setState({ remark: item.remark });
 			this.setState({ pickingStatus: item.picking_status });
-			// setBgcolor('#f5f5fa');
 			// console.log(item.id);
 			try {
-				// setIsLoading(true);
+				this.setState({ isLoading: true });
 				const secondresponse = await axios.post(urlInlist, { id: item.id });
 				if (secondresponse.status === 200) {
 					const secondData = secondresponse.data.data.items;
 					this.setState({ secondData });
 					// secondData(response.data.data.items);
-					// setIsLoading(false);
+					this.setState({ isLoading: false });
 					console.log(secondresponse.data.data.items);
 					return;
 				} else {
@@ -104,6 +112,7 @@ export default class PMS1 extends React.Component {
 	onPressSubmit = () => {
 		this.setModalVisible(false);
 		this.props.navigation.navigate('Scanbarcode', {
+			inputBgColor: this.state.bgColor,
 			inputDocument: this.state.document,
 			inputRemark: this.state.remark,
 			inputPickingDate: this.state.pickingDate,
@@ -207,12 +216,27 @@ export default class PMS1 extends React.Component {
 									</View>
 
 									<View style={datalistModalStyle.viewLayoutFlatlist}>
-										<FlatList
-											style={datalistModalStyle.flatlistCard}
-											data={this.state.secondData}
-											keyExtractor={(item) => item.id.toString()}
-											renderItem={({ item }) => <MenuFlatlistCpn item={item} />}
-										/>
+										{(() => {
+											if (this.state.isLoading == true) {
+												return (
+													<View style={datalistModalStyle.viewLoading}>
+														<View style={datalistModalStyle.viewLayoutLoading}>
+															{this.state.isLoading && (
+																<ActivityIndicator color="#0000ff" size="large" />
+															)}
+														</View>
+													</View>
+												);
+											}
+											return (
+												<FlatList
+													style={datalistModalStyle.flatlistCard}
+													data={this.state.secondData}
+													keyExtractor={(item) => item.id.toString()}
+													renderItem={({ item }) => <MenuFlatlistCpn item={item} />}
+												/>
+											);
+										})()}
 									</View>
 
 									<View style={{ flex: 0.75, flexDirection: 'row' }}>

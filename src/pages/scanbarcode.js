@@ -69,22 +69,6 @@ export default class Scanbarcode extends React.Component {
 			this.setState({productLogsQty:item.product_logs_qty});
 			this.setState({pickingProductName:item.picking_product_name});
 			this.setState({pickingRequestQty:item.picking_request_qty});
-			// try {
-			// 	// setIsLoading(true);
-			// 	const secondresponse = await axios.post(urlInlist, { id: item.id });
-			// 	if (secondresponse.status === 200) {
-			// 		const secondData = secondresponse.data.data.items;
-			// 		this.setState({ secondData });
-			// 		// secondData(response.data.data.items);
-			// 		// setIsLoading(false);
-			// 		console.log(secondresponse.data.data.items);
-			// 		return;
-			// 	} else {
-			// 		throw new Error('Failed to fetch Data');
-			// 	}
-			// } catch (error) {
-			// 	console.error(error);
-			// }
 		} else {
 		}
 	};
@@ -131,10 +115,10 @@ export default class Scanbarcode extends React.Component {
 	}
 
 	render() {
-		const { inputDocument, inputPickingDate, inputRemark, secondData } = this.props.route.params;
+		const { inputBgColor, inputDocument, inputPickingDate, inputRemark, secondData } = this.props.route.params;
 		const { modalVisible } = this.state;
 		return (
-			<View style={scanbarcodeStyle.viewBody}>
+			<View style={[scanbarcodeStyle.viewBody, { backgroundColor: inputBgColor }]}>
 				<HeadbarCpn
 					onPressBack={() => this.props.navigation.goBack()}
 					onPressDetail={() => this.props.navigation.navigate('Menu')}

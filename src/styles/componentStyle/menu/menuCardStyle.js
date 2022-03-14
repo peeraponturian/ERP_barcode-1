@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const cardStyle = StyleSheet.create({
+export const cardCpnStyle = StyleSheet.create({
 	// View
 	viewLayoutCard: {
 		flexDirection: 'column'
